@@ -1,6 +1,3 @@
-import com.typesafe.sbt.pgp.PgpKeys.{pgpPassphrase, pgpPublicRing, pgpSecretRing}
-import xerial.sbt.Sonatype.SonatypeKeys.sonatypeProfileName
-
 credentials += Credentials("Sonatype Nexus Repository Manager",
   "oss.sonatype.org",
   sys.env.getOrElse("SONATYPE_USER", default = "paradoxicalio"),
