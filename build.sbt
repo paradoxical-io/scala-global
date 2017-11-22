@@ -24,6 +24,7 @@ lazy val jackson = project.settings(commonSettings).settings(
 lazy val `scala-global` = project.in(file(".")).settings(commonSettings).settings(
   aggregate in update := false,
   publishArtifact := false
-).aggregate()
+).aggregate(jackson, global)
+
 // custom alias to hook in any other custom commands
 addCommandAlias("build", "; compile")
