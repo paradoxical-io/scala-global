@@ -1,5 +1,5 @@
-import sbt._
 import sbt.Keys._
+import sbt._
 
 object BuildConfig {
   object Dependencies {
@@ -22,7 +22,7 @@ object BuildConfig {
     Seq(
       organization := "io.paradoxical",
 
-      version := BuildConfig.Revision.version,      
+      version := BuildConfig.Revision.version,
 
       resolvers += Resolver.sonatypeRepo("releases"),
 
@@ -59,6 +59,6 @@ object BuildConfig {
         else
           Opts.resolver.sonatypeStaging
       ),
-    )
+    ) ++ Publishing.publishSettings
   }
 }

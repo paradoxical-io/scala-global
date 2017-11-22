@@ -6,7 +6,6 @@ lazy val commonSettings = BuildConfig.commonSettings()
 lazy val global = project.settings(commonSettings).settings(
   Seq(
     name := "paradox-scala-global",
-
     libraryDependencies ++= Seq() ++ Dependencies.testDeps
   )
 )
