@@ -5,7 +5,8 @@ object BuildConfig {
   object Dependencies {
     val testDeps = Seq(
       "org.scalatest" %% "scalatest" % versions.scalatest,
-      "org.mockito" % "mockito-all" % versions.mockito
+      "org.mockito" % "mockito-all" % versions.mockito,
+      "com.github.alexarchambault" %% "scalacheck-shapeless_1.13" % "1.1.5"
     ).map(_ % "test")
   }
 
@@ -42,7 +43,6 @@ object BuildConfig {
         "-unchecked",
         "-Ywarn-nullary-unit",
         "-Xfatal-warnings",
-        "-Ywarn-dead-code",
         "-Xfuture"
       ) ++ (CrossVersion.partialVersion(scalaVersion.value) match {
         case Some((2, 12)) => Seq("-Xlint:-unused")
@@ -58,7 +58,7 @@ object BuildConfig {
           Opts.resolver.sonatypeSnapshots
         else
           Opts.resolver.sonatypeStaging
-      ),
+      )
     ) ++ Publishing.publishSettings
   }
 }
