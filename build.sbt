@@ -26,6 +26,12 @@ lazy val util = project.settings(commonSettings).settings(
   )
 ).dependsOn(global)
 
+lazy val `config-api` = project.settings(commonSettings).settings(
+  Seq(
+    name := "paradox-scala-config-api"
+  )
+)
+
 lazy val jackson = project.settings(commonSettings).settings(
   Seq(
     name := "paradox-scala-jackson",
@@ -39,7 +45,7 @@ lazy val jackson = project.settings(commonSettings).settings(
 lazy val `scala-global` = project.in(file(".")).settings(commonSettings).settings(
   aggregate in update := false,
   publishArtifact := false
-).aggregate(jackson, global, util)
+).aggregate(jackson, global, util, `config-api`)
 
 // custom alias to hook in any other custom commands
 addCommandAlias("build", "; compile")
